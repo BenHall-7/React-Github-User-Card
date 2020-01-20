@@ -3,21 +3,23 @@ import styled from 'styled-components';
 import UserCard from './UserCard';
 
 let FollowersDiv = styled.div`
-    width: 400px;
     margin: 20px auto;
 `;
 
 class Followers extends React.Component {
     render() {
-        return <FollowersDiv>
-            {this.props.followers.map(follower =>
-                <UserCard
-                    width={300}
-                    key={follower.login}
-                    user={follower}
-                />
-            )}
-        </FollowersDiv>
+        return (
+            <FollowersDiv style={{display: "flex", flexDirection: "column"}}>
+                <h1 style={{fontSize: "3em", textDecoration: "underline"}}>Followers:</h1>
+                {this.props.followers.map(follower =>
+                    <UserCard
+                        img_width={300}
+                        key={follower.login}
+                        user={follower}
+                    />
+                )}
+            </FollowersDiv>
+        )
     }
 }
 
